@@ -1,19 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Count from vuex</h1>
+    <h2>{{ count }}</h2>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapState } from 'vuex';
+import { namespace } from './getSuffix';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+
+  computed: {
+    ...mapState({
+      count: (state) => state[namespace].count,
+    }),
+  },
+};
 </script>
 
 <style>

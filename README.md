@@ -1,24 +1,9 @@
-# test-repro
+# Reproduction steps
 
-## Project setup
-```
-npm install
-```
+- run `npm install && npm run serve`
+- go to the app in the browser
+- Inspect the vuex store with the Vue dev tools
+- reload the page
+- An error should appear with the console saying the previously inspected module does not exist. For example:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![](Screenshot%202022-12-14%20at%2021.34.47.png)
