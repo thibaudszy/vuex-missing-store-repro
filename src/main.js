@@ -1,29 +1,20 @@
-import Vue from 'vue';
 import App from './App.vue';
-import Vuex from 'vuex';
-import { namespace } from './getSuffix';
+import { createStore } from 'vuex';
+ import { namespace } from './getSuffix';
+import { createApp } from 'vue';
 
-Vue.config.productionTip = false;
+const store = createStore({
+  modules:{
+    [namespace] : {
+      state: () => ({ count: 10 })
+  }
+  
+}})
 
-Vue.use(Vuex);
 
-const store = new Vuex.Store({
-  modules: {
-    namespaced: true,
-    [namespace]: {
-      state: {
-        count: 10,
-      },
-      mutations: {
-        increment(state) {
-          state.count++;
-        },
-      },
-    },
-  },
-});
+const app = createApp(App);
 
-new Vue({
-  store,
-  render: (h) => h(App),
-}).$mount('#app');
+// Install the store instance as a plugin
+app.use(store)
+
+app.mount('#app')

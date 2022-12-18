@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <h1>Count from vuex</h1>
+
     <h2>{{ count }}</h2>
+
   </div>
 </template>
 
@@ -11,12 +13,11 @@ import { namespace } from './getSuffix';
 
 export default {
   name: 'App',
-
   computed: {
     ...mapState({
-      count: (state) => state[namespace].count,
-    }),
-  },
+      count: state => state[namespace].count
+    } )
+  }
 };
 </script>
 
